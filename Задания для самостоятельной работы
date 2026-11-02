@@ -1,0 +1,19 @@
+import random
+secret = "".join(random.sample("0123456789", 4))
+print("Я загадал 4-значное число (цифры не повторяются).")
+while True:
+    guess = input("Ваш вариант: ")
+    if len(guess) != 4 or len(set(guess)) != 4 or not guess.isdigit():
+        print("Ошибка! Нужно ввести ровно 4 разные цифры.")
+        continue
+    bulls = 0
+    cows = 0
+    for i in range(4):
+        if guess[i] == secret[i]:
+            bulls += 1
+        elif guess[i] in secret:
+            cows += 1
+    print(f"Быки: {bulls}, Коровы: {cows}")
+    if bulls == 4:
+        print("Поздравляю, вы угадали!")
+        break
