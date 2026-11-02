@@ -1,0 +1,12 @@
+eps = float(input("Введите точность (например, 0.0001): "))
+e = 1.0
+fact = 1
+n = 1
+while True:
+    fact *= n
+    term = 1 / fact
+    if term < eps:
+        break
+    e += term
+    n += 1
+print(f"Число e с точностью {eps} = {e}")
